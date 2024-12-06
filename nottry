@@ -1,0 +1,77 @@
+--// UI Libary
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/Librarykavoui"))()
+local Window = Library.CreateLib("Cv's Luckyblock Script", "DarkTheme")
+--// Variables
+
+--// Main ; tab / Section
+local Tab = Window:NewTab("Spawn Lucky Blocks")
+local Section = Tab:NewSection("Open Lucky Blocks")
+local TabA = Window:NewTab("Teleport")
+local Section1 = TabA:NewSection("Teleport")
+
+--// Functions
+function Nlucky()
+    game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+
+function RLucky()
+    game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+
+function SLucky()
+    game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+
+function DLucky()
+    game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+
+function GLucky()
+    game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+
+function getCurrentPlayerPOS()
+    local plyr = game.Players.LocalPlayer
+    if plyr.Character then
+        return plyr.Character.HumanoidRootPart.Position
+    end
+    return false
+end
+
+function Ctp(placeCFrame)
+    local plyr = game.Players.LocalPlayer
+    if plyr.Character then
+        plyr.Character.HumanoidRootPart.CFrame = placeCFrame
+    end
+end
+
+--// Toggles + Main UI Controls
+Section:NewButton("Open Normal Lucky Block", "Opens up a normal lucky block for free", function()
+    print('Spawned Normal Luckyblock')
+    Nlucky()
+end)
+
+Section:NewButton("Open Rainbow Lucky Block", "Opens up a Rainbow lucky block for free", function()
+    print('Spawned Rainbow Luckyblock')
+    RLucky()
+end)
+
+Section:NewButton("Open Super Lucky Block", "Opens up a Super lucky block for free", function()
+    print('Spawned Super Luckylock')
+    SLucky()
+end)
+
+Section:NewButton("Open Diamond Lucky Block", "Opens up a Super lucky block for free", function()
+    print('Spawned Diamond Luckylock')
+    DLucky()
+end)
+
+Section:NewButton("Open Galaxy Lucky Block", "Opens up a Galaxy lucky block for free", function()
+    print('Spawned Galaxy Luckylock')
+    DLucky()
+end)
+
+--// Teleport GUI part
+Section1:NewButton("Teleport To Center", "Teleports you to Center", function()
+    Ctp(game:GetService('Workspace').CenterBlocks.center)
+end)
